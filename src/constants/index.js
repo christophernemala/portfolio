@@ -6,7 +6,6 @@ import {
   typescript,
   reactjs,
   redux,
-  tailwind,
   nodejs,
   mongodb,
   rently,
@@ -23,6 +22,7 @@ import {
   nextjs,
   fastlane,
   Portfolio,
+  mobx,
 } from "../assets";
 
 export const navLinks = [
@@ -49,19 +49,19 @@ export const navLinks = [
 ];
 
 const Introduction =
-  "I'm a Software Engineer with 5+ years of experience in developing robust full-stack Web and Mobile applications using frameworks such as React.js, React Native, Three.js, Next.js and Node.js. I specialize in crafting complex applications and am known for ensuring excellence and uniformity across every stage of software development initiatives.";
+  "I'm a Software Engineer with 6+ years of experience in developing robust full-stack Web and Mobile applications using frameworks such as React.js, React Native, Three.js, Next.js and Node.js. I specialize in crafting complex applications and am known for ensuring excellence and uniformity across every stage of software development initiatives.";
 
 const projectsIntro =
   "The following projects demonstrate my skills and experience through real-world examples of my work. Each project is briefly described, with links to code repositories and relevant LinkedIn posts. They showcase my proficiency in solving complex problems, my passion for learning and integrating diverse technologies, and my adeptness in technical project management and execution.";
 
 const services = [
   {
-    title: "Web Developer",
-    icon: web,
-  },
-  {
     title: "React Native Developer",
     icon: mobile,
+  },
+  {
+    title: "Web Developer",
+    icon: web,
   },
   {
     title: "Backend Developer",
@@ -107,8 +107,8 @@ const technologies = [
     icon: mongodb,
   },
   {
-    name: "Tailwind CSS",
-    icon: tailwind,
+    name: "MobX",
+    icon: mobx,
   },
   {
     name: "Redux Toolkit",
@@ -133,15 +133,15 @@ const experiences = [
     date: "June 2019 - May 2023",
     points: [
       "Led the development of a web & mobile Smart Home Rental Application with 5000+ daily active users working on IoT, Maps, Animations, Payment gateway, Heap, Sentry & Firebase.",
-      "Successfully delivered & maintained 3 React applications, including a full-stack maps navigation application, along with 2 React Native projects.",
+      "Successfully delivered & maintained 2 core React Native apps & 10 white-labeled apps, handling end-to-end feature ownership.",
       "Promoted Agile methodologies, collaborating with Product Owners and Managers on technical challenges & user insights (Heap & Firebase analytics) to drive project success.",
-      "Proficient in unit, integration & end-to-end testing and efficiently addressed 200+ bugs, resulting in increased app ratings to 4.7 on Android and 4.8 on iOS.",
+      "Proficient in unit, integration & end-to-end testing and efficiently addressed 300+ bugs, resulting in increased app ratings to 4.7 on Android and 4.8 on iOS.",
       "Efficiently reduced technical debts by over 40%, optimizing the codebase & enhancing application security.",
-      "Skilled in codepush deployment, app store review management, and code signing.",
+      "Skilled in codepush deployment, app store submissions, and code signing.",
       "Conducted 100+ code reviews, emphasizing high-quality code through clean code principles.",
-      "Mentored 10+ junior developers to deliver multiple modules in the Smart Home application.",
-      "Competent in UI/UX design patterns, with a hands on approach for creating visually appealing & user-centric interfaces using Figma, Adobe, Miro & Material UI library.",
-      "Facilitated Authentication (AWS and Azure SSO) & in-app chat (ADA Chatbot) integrations."
+      "Mentored 10+ junior developers, fostering knowledge sharing & accelerating feature delivery.",
+      "Competent in UI/UX design patterns, with a hands on approach for creating visually appealing & user-centric interfaces using Figma, Adobe, Miro, Material UI library & React Native components",
+      "Implemented AWS & Azure SSO authentication & in-app chat (ADA Chatbot) integration."
     ],
   },
   {
@@ -151,12 +151,12 @@ const experiences = [
     iconBg: "#ffffff",
     date: "May 2023 - Present",
     points: [
-      "Leading the development of complex, responsive UI components using React and React Native for a lottery gaming application, which serves over 2,000 daily active users.",
-      "Experienced in working with Monorepo architecture & Lerna, with active contributions to the creation & maintenance of over 110+ private npm packages.",
-      "Designing captivating 3D animations with Three.js for visually compelling UI enhancements.",
-      "Implementing robust automated workflows with Github Actions and Dependabot, saving the team 2+ hours daily & efficiently managing the outdated dependencies.",
-      "Played a pivotal role in achieving a smooth React Native upgrade.",
-      "Integrating the customer engagement platform Xtremepush, resulting in enhanced customer engagement, boosting company revenues."
+      "Leading the development of complex, responsive React Native UI components for a lottery gaming application, serving over 2,000 daily active users.",
+      "Experienced in working with Monorepo architecture & Lerna, with active contributions to the creation & maintenance of over 120+ private npm packages.",
+      "Designing captivating 3D animations with Three.js for visually engaging and interactive UI enhancements.",
+      "Building robust automated workflows using Github Actions & Dependabot, saving the team 2+ hours daily & efficiently managing the outdated dependencies.",
+      "Consistently driving smooth React Native upgrades across projects.",
+      "Integrated the customer engagement platform Xtremepush, resulting in enhanced customer engagement, boosting company revenues."
     ],
   },
 ];
@@ -164,33 +164,33 @@ const experiences = [
 const achievements = [
   {
     achievement:
-      "Integrated Beans Map(precise Geocoding), effectively addressing the user navigation challenge & contributing to a 40% improvement in user retention.",
+      "Architected & developed a full-stack CI/CD system using Fastlane, React, Node.js, Socket.io & SQLite, achieving 70% faster APK/IPA generation & significantly improving productivity.",
     company: "Rently",
   },
   {
     achievement:
-      "Effectively completed multiple feature developments, including advanced data visualization & UI/UX enhancements, alongside successful proofs of concept (POCs).",
-    company: "Rently",
-  },
-  {
-    achievement:
-      "Architected & implemented a full stack CI/CD system for Fastlane using React, Node.js, WebSockets & SQLite DB, leading to a notable increase in overall efficiency and output.",
+      "Optimised app performance & user experience by 17% using Firebase & Shopify performance Monitoring & iterated based on metrics insights, ensuring a smooth, crash-free experience.",
     company: "IGT",
   },
   {
     achievement:
-      "Achieved 100% test case coverage by implementing the Jest and Detox frameworks for unit, integration, and end-to-end testing.",
-    company: "Rently",
+      "Delivered & deployed 10+ React & React Native applications in production environments.",
+    company: "Rently & IGT",
   },
   {
     achievement:
-      "Achieved moving Jenkins from a local machine to AWS EC2 cloud with Docker, which saved us 4 hours of daily manual work for test automation.",
-    company: "Rently",
-  },
-  {
-    achievement:
-      "Optimized app performance & user experience by 25% by integrating Firebase Performance Monitoring & shopify performance libraries & iterated based on metrics insights.",
+      "Initiated Tech Tuesday meetups to share technical challenges and solutions across multiple teams, documenting them and implementing best solutions collaboratively.",
     company: "IGT",
+  },
+   {
+    achievement:
+      "Achieved parallel multi-device automated test execution using Browserstack, achieving maximum coverage in significantly less time.",
+    company: "Rently",
+  },
+   {
+    achievement:
+      "Migrated Jenkins from local setup to AWS EC2 using Docker, automating test workflows and saving 4 hours of daily manual effort.",
+    company: "Rently",
   },
   {
     achievement:
@@ -199,13 +199,13 @@ const achievements = [
   },
   {
     achievement:
-      "Initiated Tech Tuesday meetups and eliminated multiple production issues by discussing, documenting and implementing best solutions collaboratively.",
-    company: "IGT",
+      "Integrated Beans Map(precise Geocoding), effectively addressing the critical user navigation challenge & contributing to a 10% rise in app downloads.",
+    company: "Rently",
   },
   {
     achievement:
-      "Building & deploying 10+ React & React Native applications in production environments.",
-    company: "Rently & IGT",
+      "Effectively completed multiple feature developments, including advanced data visualization & UI/UX enhancements, alongside successful proofs of concept (POCs).",
+    company: "Rently",
   },
 ];
 

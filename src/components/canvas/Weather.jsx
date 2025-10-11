@@ -62,6 +62,8 @@ const Clouds = ({ lightningVisible }) => {
   const [renderCount, setRenderCount] = useState(0);
   const cloudGeo = useRef(new THREE.PlaneGeometry(300, 300));
   const texture = useTexture(smoke);
+  const highlightColor = new THREE.Color(0xB0E0E6);
+  const originalColor = new THREE.Color(0xffffff);
 
   useEffect(() => {
     setRenderCount(prev => prev + 1);
@@ -76,6 +78,7 @@ const Clouds = ({ lightningVisible }) => {
           transparent: true,
           opacity: 0.2,
           depthTest: true,
+          color: originalColor,
         })
       );
       cloud.position.set(
@@ -96,11 +99,13 @@ const Clouds = ({ lightningVisible }) => {
       }
       p.rotation.z -= 0.001; // Rotate clouds
 
-      // Highlight or change opacity when lightning strikes
+      // Enhanced cloud highlighting with color change
       if (lightningVisible) {
-        p.material.opacity = 1; // Increase opacity temporarily
+        p.material.opacity = 0.8;
+        p.material.color.lerp(highlightColor, 0.3);
       } else {
-        p.material.opacity = 0.2; // Reset opacity
+        p.material.opacity = 0.2;
+        p.material.color.lerp(originalColor, 0.1);
       }
     });
   });
@@ -116,70 +121,145 @@ const Clouds = ({ lightningVisible }) => {
 
 const Lightning = ({ onLightningVisible, lightningVisible }) => {
   const lightningMesh = useRef(null);
+  const lightningStrikeRef = useRef(null);
+  const [lightningIntensity, setLightningIntensity] = useState(0);
+  const flashLightRef = useRef(null);
 
   useEffect(() => {
     const sourceOffsetX = Math.random() * 2 - 1; // Between -1 and 1 (left to right)
     const sourceOffsetZ = Math.random() * 2 - 1; // Between -1 and 1 (front to back)
     const sourceOffset = new THREE.Vector3(sourceOffsetX, 100, sourceOffsetZ);
     const lightningParams = {
-      sourceOffset: sourceOffset, // Start above the screen
-      destOffset: new THREE.Vector3(0, -100, 0), // End below the screen
-      radius0: 0.01,
-      radius1: 0.01,
-      minRadius: 0.01,
-      maxIterations: 7,
-      isEternal: true,
-      timeScale: 0.2, // Slower time scale
-      propagationTimeFactor: 0.4, // Slower propagation
-      vanishingTimeFactor: 1.5, // Slower vanishing
-      subrayPeriod: 5.0, // Longer subray period
-      subrayDutyCycle: 0.4,
-      maxSubrayRecursion: 3,
-      ramification: 7, // number of branches in the lightning
-      recursionProbability: 0.7, // chance of a branch further splitting into smaller branches
-      roughness: 0.85,
-      straightness: 0.75,
+      sourceOffset: sourceOffset,
+      destOffset: new THREE.Vector3(0, -100, 0),
+      radius0: 2, // Increased radius for thicker lightning
+      radius1: 0.5,
+      minRadius: 0.3,
+      maxIterations: 9, // More iterations for more detail
+      isEternal: false,
+      timeScale: 0.15, // Slower time scale for more dramatic effect
+      propagationTimeFactor: 0.3, // Slower propagation
+      vanishingTimeFactor: 2.0, // Longer vanishing time
+      subrayPeriod: 3.0,
+      subrayDutyCycle: 0.6,
+      maxSubrayRecursion: 4, // More recursion for more branches
+      ramification: 12, // More branches
+      recursionProbability: 0.6,
+      roughness: 0.9, // More roughness for more natural look
+      straightness: 0.6, // Less straightness for more organic shape
     };
 
     const lightningStrike = new LightningStrike(lightningParams);
-    const mesh = new THREE.Mesh(
-      lightningStrike,
-      new THREE.MeshBasicMaterial({ color: 0xffffff })
-    );
+    lightningStrikeRef.current = lightningStrike;
+
+    // Create multiple materials for a more intense effect
+    const lightningMaterial = new THREE.MeshBasicMaterial({ 
+      color: 0xB0E0E6,
+      transparent: true,
+      opacity: 0.9,
+      blending: THREE.AdditiveBlending
+    });
+
+    const mesh = new THREE.Mesh(lightningStrike, lightningMaterial);
     lightningMesh.current = mesh;
 
-    // Update the lightning bolt's position
-    const interval = setInterval(() => {
-      onLightningVisible(true);
-      setTimeout(() => {
-        onLightningVisible(false);
-      }, 300); // Lightning visible for 300ms
-    }, Math.random() * (10000 - 2000) + 2000); // Random interval between 2 to 10 seconds
+    // Create flash light for screen illumination
+    const flashLight = new THREE.PointLight(0xB0E0E6, 0, 1000);
+    flashLight.position.copy(sourceOffset);
+    flashLightRef.current = flashLight;
 
-    return () => clearInterval(interval);
+    // Lightning strike interval - REDUCED FREQUENCY
+    const strikeLightning = () => {
+      onLightningVisible(true);
+      setLightningIntensity(1);
+      
+      // Multiple flashes for more realistic effect
+      setTimeout(() => {
+        setLightningIntensity(0.3);
+      }, 100);
+      
+      setTimeout(() => {
+        setLightningIntensity(0.8);
+      }, 150);
+      
+      setTimeout(() => {
+        setLightningIntensity(0.2);
+      }, 200);
+      
+      setTimeout(() => {
+        setLightningIntensity(0);
+        onLightningVisible(false);
+      }, 500);
+    };
+
+    // Start lightning strikes with REDUCED FREQUENCY
+    const interval = setInterval(() => {
+      strikeLightning();
+    }, Math.random() * (15000 - 8000) + 8000);
+
+    const initialStrike = setTimeout(() => {
+      strikeLightning();
+    }, 5000);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(initialStrike);
+    };
   }, [onLightningVisible]);
 
-  useFrame(() => {
-    if (lightningMesh.current) {
-      lightningMesh.current.geometry.update(Math.random()); // Update lightning geometry
+  useFrame((state, delta) => {
+    if (lightningMesh.current && lightningStrikeRef.current) {
+      lightningStrikeRef.current.update(delta);
+      
+      // Animate lightning intensity
+      if (lightningIntensity > 0) {
+        const intensity = lightningIntensity * (0.8 + Math.random() * 0.4);
+        lightningMesh.current.material.opacity = intensity;
+        
+        if (flashLightRef.current) {
+          flashLightRef.current.intensity = intensity * 5;
+        }
+        
+        // Gradually decrease intensity
+        setLightningIntensity(prev => Math.max(0, prev - delta * 2));
+      }
     }
   });
 
-  return lightningVisible ? <primitive object={lightningMesh.current} /> : null;
+  return (
+    <>
+      {lightningVisible && lightningMesh.current && (
+        <>
+          <primitive object={lightningMesh.current} />
+          <primitive object={flashLightRef.current} />
+        </>
+      )}
+    </>
+  );
 };
 
 const Scene = () => {
   const { lightningVisible, setLightningVisible } = useGlobalContext();
+  const ambientLightRef = useRef();
+  const directionalLightRef = useRef();
 
   const handleLightningVisible = (isVisible) => {
     setLightningVisible(isVisible);
+    
+    // Enhance ambient lighting during lightning strike
+    if (ambientLightRef.current) {
+      ambientLightRef.current.intensity = isVisible ? 1.2 : 0.5;
+    }
+    if (directionalLightRef.current) {
+      directionalLightRef.current.intensity = isVisible ? 0.8 : 0.5;
+    }
   };
 
   return (
     <>
       <fog attach="fog" args={["#00000f", 0.001]} />
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[0, 0, 1]} intensity={0.5} />
+      <ambientLight ref={ambientLightRef} intensity={0.5} />
+      <directionalLight ref={directionalLightRef} position={[0, 0, 1]} intensity={0.5} />
       <Clouds lightningVisible={lightningVisible} />
       <Rain rainCount={150000} />
       <Lightning
@@ -203,10 +283,10 @@ const WeatherCanvas = () => {
         <Suspense fallback={null}>
           <Scene />
         </Suspense>
-
         <Preload all />
       </Canvas>
     </div>
   );
 };
+
 export default WeatherCanvas;
