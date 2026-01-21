@@ -133,7 +133,7 @@ const experiences = [
     date: "June 2019 - May 2023",
     points: [
       "Led the development of a web & mobile Smart Home Rental Application with 5000+ daily active users working on IoT, Maps, Animations, Payment gateway, Heap, Sentry & Firebase.",
-      "Successfully delivered & maintained 2 core React Native apps & 10 white-labeled apps, handling end-to-end feature ownership.",
+      "Successfully delivered & maintained 2 core React & React Native apps & 10 white-labeled apps, handling end-to-end feature ownership.",
       "Promoted Agile methodologies, collaborating with Product Owners and Managers on technical challenges & user insights (Heap & Firebase analytics) to drive project success.",
       "Proficient in unit, integration & end-to-end testing and efficiently addressed 300+ bugs, resulting in increased app ratings to 4.7 on Android and 4.8 on iOS.",
       "Efficiently reduced technical debts by over 40%, optimizing the codebase & enhancing application security.",
@@ -194,7 +194,7 @@ const achievements = [
   },
   {
     achievement:
-      "Integrated payment gateways (Authorize.net & Stripe), conducted A/B testing for subscription plans, resulting in a 7% increase in company revenue.",
+      "Integrated payment gateways (Razorpay & Stripe), conducted A/B testing for subscription plans, resulting in a 7% increase in company revenue.",
     company: "Rently",
   },
   {
