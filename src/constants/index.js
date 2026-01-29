@@ -132,8 +132,8 @@ const experiences = [
     iconBg: "#D77232",
     date: "June 2019 - May 2023",
     points: [
-      "Led the development of a web & mobile Smart Home Rental Application with 5000+ daily active users working on IoT, Maps, Animations, Payment gateway, Heap, Sentry & Firebase.",
-      "Successfully delivered & maintained 2 core React & React Native apps & 10 white-labeled apps, handling end-to-end feature ownership.",
+      "Led the development of production-grade web and mobile applications (5,000+ Daily Active Users) using React, Next, React Native, Payment gateway, & modern frontend patterns.",
+      "Owned end-to-end delivery of 2 core products & 10+ white-labeled applications, ensuring consistency, stability, and high engineering standards across multiple deployments.",
       "Promoted Agile methodologies, collaborating with Product Owners and Managers on technical challenges & user insights (Heap & Firebase analytics) to drive project success.",
       "Proficient in unit, integration & end-to-end testing and efficiently addressed 300+ bugs, resulting in increased app ratings to 4.7 on Android and 4.8 on iOS.",
       "Efficiently reduced technical debts by over 40%, optimizing the codebase & enhancing application security.",
@@ -151,12 +151,15 @@ const experiences = [
     iconBg: "#ffffff",
     date: "May 2023 - Present",
     points: [
-      "Leading the development of complex, responsive React Native UI components for a lottery gaming application, serving over 2,000 daily active users.",
+      "Leading the development of complex, responsive Next.js & React Native UI components using Tailwind CSS, & ShadCN UI, serving over 2,000 daily active users.",
       "Experienced in working with Monorepo architecture & Lerna, with active contributions to the creation & maintenance of over 120+ private npm packages.",
       "Designing captivating 3D animations with Three.js for visually engaging and interactive UI enhancements.",
       "Building robust automated workflows using Github Actions & Dependabot, saving the team 2+ hours daily & efficiently managing the outdated dependencies.",
       "Consistently driving smooth React Native upgrades across projects.",
-      "Integrated the customer engagement platform Xtremepush, resulting in enhanced customer engagement, boosting company revenues."
+      "Integrated the customer engagement platform Xtremepush, resulting in enhanced customer engagement, boosting company revenues.",
+      "Architected scalable frontend modules using Next.js & TypeScript with SSR & dynamic routing to deliver SEO-optimized, high-performance, & performance-critical user flows.",
+      "Optimized frontend performance using Next.js Server Components, caching, memoization, code-splitting & efficient rendering strategies to improve load time and responsiveness.",
+      "Improved frontend reliability by introducing structured error handling, logging, & test coverage using Jest & React Testing Library."
     ],
   },
 ];
@@ -174,7 +177,7 @@ const achievements = [
   },
   {
     achievement:
-      "Delivered & deployed 10+ React & React Native applications in production environments.",
+      "Delivered & deployed 10+ React/Next & React Native applications in production environments.",
     company: "Rently & IGT",
   },
   {
