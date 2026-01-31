@@ -57,3 +57,5 @@ const BusCanvas = () => {
 };
 
 export default BusCanvas;
+
+useGLTF.preload("/battle_bus/scene.gltf");

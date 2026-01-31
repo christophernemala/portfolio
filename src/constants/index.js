@@ -17,6 +17,7 @@ import {
   ecommerce,
   fullstack,
   evently,
+  cupertinoMotion,
   aora,
   customKeyboard,
   nextjs,
@@ -240,6 +241,7 @@ const projects = [
       },
     ],
     image: Portfolio,
+    website: "https://bharath-devportfolio.vercel.app/",
     sourceCode: "https://github.com/Bharathkdev/portfolio",
     linkedinPost:
       "https://www.linkedin.com/posts/bharathrna_reactjs-threejs-tailwindcss-activity-7208475385955590144-j3N0?utm_source=share&utm_medium=member_desktop",
@@ -271,9 +273,41 @@ const projects = [
       },
     ],
     image: evently,
+    website: "https://evently-platform.netlify.app/",
     sourceCode: "https://github.com/Bharathkdev/event_platform",
     linkedinPost:
       "https://www.linkedin.com/posts/bharathrna_reactjs-nextjs-mongodb-activity-7178368379722821632-ESkr?utm_source=share&utm_medium=member_desktop",
+  },
+  {
+    name: "Cupertino Motion",
+    description:
+      "Cupertino Motion is a React 19–based project built with Three.js and GSAP, focused on creating immersive, high-performance 3D web experiences inspired by Apple’s design language. It combines scroll-driven animations, real-time 3D models, responsive layouts, and optimized asset handling to deliver a smooth, cinematic product showcase across desktop and mobile devices.",
+    tags: [
+      {
+        name: "reactjs",
+        color: "violet-text-gradient",
+      },
+      {
+        name: "threejs",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "gsap",
+        color: "green-text-gradient",
+      },
+      {
+        name: "zustand",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "tailwindCSS",
+        color: "orange-text-gradient",
+      },
+    ],
+    image: cupertinoMotion,
+    website: "https://cupertino-motion.vercel.app/",
+    sourceCode: "https://github.com/Bharathkdev/cupertino-motion",
+    linkedinPost: "",
   },
   {
     name: "Money Manager App",
@@ -302,6 +336,7 @@ const projects = [
       },
     ],
     image: moneymanager,
+    website: "",
     sourceCode: "https://github.com/Bharathkdev/expenseTrackerApp",
     linkedinPost:
       "https://www.linkedin.com/posts/bharathrna_reactnative-javascript-firebase-activity-7118224386054135808-VeKD?utm_source=share&utm_medium=member_desktop",
@@ -333,6 +368,7 @@ const projects = [
       },
     ],
     image: aora,
+    website: "",
     sourceCode: "https://github.com/Bharathkdev/full_stack_expo_app",
     linkedinPost:
       "https://www.linkedin.com/posts/bharathrna_a-full-stack-react-native-video-streaming-activity-7199439106756468736-ZXqI?utm_source=share&utm_medium=member_desktop",
@@ -364,6 +400,7 @@ const projects = [
       },
     ],
     image: customKeyboard,
+    website: "",
     sourceCode: "https://github.com/Bharathkdev/custom_keyboard",
     linkedinPost:
       "https://www.linkedin.com/posts/bharathrna_hello-all-i-recently-challenged-myself-activity-7205568376868401152-tHcu?utm_source=share&utm_medium=member_desktop",
@@ -387,6 +424,7 @@ const projects = [
       },
     ],
     image: ecommerce,
+    website: "",
     sourceCode: "https://github.com/Bharathkdev/RNShop",
     linkedinPost: "",
   },

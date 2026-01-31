@@ -5,6 +5,7 @@ import mobile from "./mobile.png";
 import web from "./web.png";
 import github from "./github.png";
 import linkedin from "./linkedin.png";
+import host from "./host.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
@@ -45,6 +46,7 @@ import rently from "./company/rently.png";
 import moneymanager from "./moneymanager.jpeg";
 import ecommerce from "./e-commerce.jpg";
 import evently from "./evently.png";
+import cupertinoMotion from "./cupertinoMotion.png";
 import Portfolio from "./Portfolio.png";
 import aora from './aora.png';
 import customKeyboard from './customKeyboard.png';
@@ -58,6 +60,7 @@ export {
   aora,
   github,
   linkedin,
+  host,
   smoke,
   menu,
   close,
@@ -93,6 +96,7 @@ export {
   moneymanager,
   ecommerce,
   evently,
+  cupertinoMotion,
   Portfolio,
   customKeyboard
 };

@@ -84,3 +84,5 @@ const PlaneCanvas = () => {
 };
 
 export default PlaneCanvas;
+
+useGLTF.preload("/plane/scene.gltf");

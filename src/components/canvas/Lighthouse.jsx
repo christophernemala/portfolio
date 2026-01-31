@@ -85,3 +85,5 @@ const LighthouseCanvas = () => {
 };
 
 export default LighthouseCanvas;
+
+useGLTF.preload("/lighthouse/scene.gltf");

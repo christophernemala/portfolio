@@ -1,74 +1,118 @@
-import { useRef, useState, useEffect } from "react";
+import React from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
-import { github, linkedin, previous, next } from "../assets";
+import { github, linkedin, host } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects, projectsIntro } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import RainOnGlass from "./RainOnGlass";
 
+/**
+ * ProjectCard
+ * -----------
+ * Reusable project card component with tilt and motion effects.
+ */
 const ProjectCard = ({
   index,
   name,
   description,
   tags,
   image,
+  website,
   sourceCode,
   linkedinPost,
+  featured = false,
 }) => {
+  const actionLinks = [
+    {
+      icon: host,
+      url: website,
+      alt: "website",
+      iconSize: "w-7 h-7"
+    },
+    {
+      icon: github,
+      url: sourceCode,
+      alt: "github",
+      iconSize: "w-8 h-8"
+    },
+    {
+      icon: linkedin,
+      url: linkedinPost,
+      alt: "linkedin",
+      iconSize: "w-10 h-10"
+    },
+  ];
+
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.15, 0.75)}
+      className={featured ? "lg:col-span-2" : ""}
+    >
       <Tilt
         options={{
-          max: 45,
+          max: 30,
           scale: 1,
-          speed: 450,
+          speed: 400,
         }}
-        className="black-gradient p-5 rounded-2xl sm:w-[360px] w-full"
+        className="black-gradient p-5 rounded-2xl w-full h-full"
       >
-        <div className="relative w-full h-[230px]">
+        <div className="relative w-full h-[220px] sm:h-[260px]">
           <img
             src={image}
             alt={name}
-            className="w-full h-full object-contain rounded-2xl bg-stone-900"
+            loading="lazy"
+            className="w-full h-full object-contain rounded-xl bg-stone-900"
           />
-          <div className="absolute inset-0 flex-end m-3 card-img_hover flex">
-            <div
-              onClick={() => window.open(sourceCode, "_blank")}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer mr-2"
-            >
-              <img
-                src={github}
-                alt="github"
-                className="w-8/12 h-8/12 object-contain"
-              />
-            </div>
-            {linkedinPost && (
-              <div
-                onClick={() => window.open(linkedinPost, "_blank")}
-                className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
-              >
-                <img
-                  src={linkedin}
-                  alt="linkedin"
-                  className="w-10/12 h-10/12 object-contain"
-                />
-              </div>
-            )}
+
+          {/* Action Icons (Website / GitHub / LinkedIn) */}
+          <div className="absolute top-3 right-3 flex gap-3 z-10">
+            {actionLinks
+              .filter((item) => item.url)
+              .map((item) => (
+                <div
+                  key={item.alt}
+                  onClick={() => window.open(item.url, "_blank")}
+                  className="
+                    black-gradient
+                    w-12 h-12
+                    rounded-full
+                    flex justify-center items-center
+                    cursor-pointer
+                    transition-all
+                    hover:scale-110
+                    hover:ring-2 hover:ring-white/20
+                  "
+                >
+                  <img
+                    src={item.icon}
+                    alt={item.alt}
+                    className={`${item.iconSize} object-contain`}
+                  />
+                </div>
+              ))}
           </div>
         </div>
 
         <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-stone-300 text-[14px]">{description}</p>
+          <h3 className="text-white font-bold text-[22px]">
+            {name}
+          </h3>
+          <p className="mt-2 text-stone-300 text-[14px] leading-relaxed">
+            {description}
+          </p>
         </div>
 
         <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <p key={tag.name} className={`text-[14px] ${tag.color}`}>
+            <span
+              key={tag.name}
+              className={`text-[13px] ${tag.color}`}
+            >
               #{tag.name}
-            </p>
+            </span>
           ))}
         </div>
       </Tilt>
@@ -76,75 +120,129 @@ const ProjectCard = ({
   );
 };
 
+/**
+ * Works
+ * -----
+ * Projects section with glowing parent animation.
+ */
 const Works = () => {
-  const scrollRef = useRef(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const checkForScrollPosition = () => {
-    if (scrollRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 20);
-    }
-  };
-
-  const handleScroll = (direction) => {
-    if (scrollRef.current) {
-      const { clientWidth } = scrollRef.current;
-      const scrollAmount = direction === "left" ? -clientWidth : clientWidth;
-      scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
-  };
-
-  useEffect(() => {
-    checkForScrollPosition();
-  }, []);
+  const featuredProject = projects[0];
+  const otherProjects = projects.slice(1);
 
   return (
-    <>
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>My work</p>
-        <h2 className={styles.sectionHeadText}>Projects & Learnings.</h2>
-      </motion.div>
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="relative mt-24"
+    >
+      {/* Animated glowing halo */}
+      <motion.div
+        aria-hidden
+        className="
+          pointer-events-none
+          absolute -inset-[2px]
+          rounded-3xl
+          bg-gradient-to-r
+          from-white/5
+          via-white/15
+          to-white/5
+          blur-xl
+          opacity-70
+        "
+        animate={{
+          backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+        }}
+        transition={{
+          duration: 16,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        style={{ backgroundSize: "200% 200%" }}
+      />
 
-      <div className="w-full flex">
+      <div
+        className="
+          relative
+          px-6 py-12
+          rounded-3xl
+          border border-white/10
+          bg-white/[0.03]
+          backdrop-blur-sm
+          overflow-hidden
+        "
+      >
+        <RainOnGlass />
+        
+        {/* Reveal wash */}
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className="
+              absolute inset-0
+              bg-gradient-to-tr
+              from-transparent
+              via-white/5
+              to-transparent
+            "
+            initial={{ x: "-100%" }}
+            whileInView={{ x: "100%" }}
+            transition={{
+              duration: 1.4,
+              ease: "easeOut",
+            }}
+          />
+        </motion.div>
+
+        <motion.div variants={textVariant()}>
+          <p className={styles.sectionSubText}>My work</p>
+          <h2 className={styles.sectionHeadText}>
+            Projects & Learnings.
+          </h2>
+        </motion.div>
+
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-slate-400 text-[17px] max-w-3xl leading-[30px]"
+          className="mt-4 text-slate-400 text-[17px] max-w-3xl leading-[30px]"
         >
           {projectsIntro}
         </motion.p>
-      </div>
 
-      <div className="relative mt-20">
-        {canScrollLeft && (
-          <button
-            className="absolute left-0 z-10 p-2 bg-white-100 rounded-full transform -translate-y-1/2 top-1/2"
-            onClick={() => handleScroll("left")}
-          >
-            <img src={previous} alt="previous" className="w-10 h-10" />
-          </button>
+        {featuredProject && (
+          <div className="mt-20">
+            <ProjectCard
+              index={0}
+              {...featuredProject}
+              featured
+            />
+          </div>
         )}
+
         <div
-          ref={scrollRef}
-          onScroll={checkForScrollPosition}
-          className="flex gap-7 overflow-x-auto hide-scrollbar"
+          className="
+            mt-16
+            grid gap-8
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-3
+          "
         >
-          {projects.map((project, index) => (
-            <ProjectCard key={`project-${index}`} index={index} {...project} />
+          {otherProjects.map((project, index) => (
+            <ProjectCard
+              key={`project-${index}`}
+              index={index + 1}
+              {...project}
+            />
           ))}
         </div>
-        {canScrollRight && (
-          <button
-            className="absolute right-0 z-10 p-2 bg-stone-400 rounded-full transform -translate-y-1/2 top-1/2"
-            onClick={() => handleScroll("right")}
-          >
-            <img src={next} alt="next" className="w-10 h-10" />
-          </button>
-        )}
       </div>
-    </>
+    </motion.div>
   );
 };
 
