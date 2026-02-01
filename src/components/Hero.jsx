@@ -9,12 +9,7 @@ const Hero = () => {
   const isMobileOrTablet = useMediaQuery({ maxWidth: 1024 });
 
   return (
-    <section
-      className={`
-        relative w-full mx-auto
-        ${!isMobileOrTablet ? "h-screen" : "min-h-[70vh] py-24"}
-      `}
-    >
+    <section className="relative w-full h-screen mx-auto">
       {!isMobileOrTablet && <BusCanvas />}
       <div
         className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5 z-10`}

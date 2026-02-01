@@ -23,7 +23,9 @@ const App = () => {
         <Hero />
         <About />
         <Experience />
-        <Tech />
+        {!isMobileOrTablet && (
+          <Tech />
+        )}
         <Achievements />
         <Works />
         <Contact />
