@@ -69,6 +69,8 @@ Even with **heavy 3D models**, **WebGL rendering**, and **complex animations**, 
 
 ### Latest Local Performance Metrics
 
+<img width="1575" height="847" alt="portfolio performance metrics" src="https://github.com/user-attachments/assets/8cd646ee-c0b2-4a11-9a5f-07683e49855b" />
+
 - **Largest Contentful Paint (LCP):** **0.31s**  
   → Primary content renders almost instantly, ensuring a fast perceived load experience.
 
