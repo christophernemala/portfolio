@@ -8,6 +8,7 @@ import { SectionWrapper } from "../hoc";
 import { projects, projectsIntro } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 import RainOnGlass from "./RainOnGlass";
+import { useMediaQuery } from "react-responsive";
 
 /**
  * ProjectCard
@@ -25,6 +26,8 @@ const ProjectCard = ({
   linkedinPost,
   featured = false,
 }) => {
+  const isMobileOrTablet = useMediaQuery({ maxWidth: 1024 });
+
   const actionLinks = [
     {
       icon: host,
@@ -53,7 +56,7 @@ const ProjectCard = ({
     >
       <Tilt
         options={{
-          max: 30,
+          max: isMobileOrTablet ? 0 : 30,
           scale: 1,
           speed: 400,
         }}
