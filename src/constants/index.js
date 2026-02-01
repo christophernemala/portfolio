@@ -50,7 +50,7 @@ export const navLinks = [
 ];
 
 const Introduction =
-  "I'm a Software Engineer with 6+ years of experience in developing robust full-stack Web and Mobile applications using frameworks such as React Native, React.js, Next.js, Three.js, and Node.js. I specialize in crafting complex applications and am known for ensuring excellence and uniformity across every stage of software development initiatives.";
+  "I’m a Senior Full-Stack Software Engineer with 6+ years of experience architecting and delivering high-performance, scalable Web and Mobile applications. I specialize in building complex, production-grade systems using React Native, React.js, Next.js, Three.js, and Node.js, with a strong focus on performance optimization, SEO-friendly rendering, clean architecture, and user-centric design.";
 
 const projectsIntro =
   "The following projects demonstrate my skills and experience through real-world examples of my work. Each project is briefly described, with links to code repositories and relevant LinkedIn posts. They showcase my proficiency in solving complex problems, my passion for learning and integrating diverse technologies, and my adeptness in technical project management and execution.";
