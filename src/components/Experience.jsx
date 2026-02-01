@@ -8,8 +8,8 @@ import { styles } from "../styles";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
-import { useGlobalContext } from "../Context/GlobalContext";
 import { PlaneCanvas } from "./canvas";
+import { useMediaQuery } from "react-responsive";
 
 const ExperienceCard = ({ experience }) => {
   return (
@@ -58,7 +58,7 @@ const ExperienceCard = ({ experience }) => {
 const Experience = () => {
   const width = window.innerWidth;
   const height = window.innerHeight;
-  const { isMobile } = useGlobalContext();
+  const isMobileOrTablet = useMediaQuery({ maxWidth: 1024 });
 
   return (
     <>
@@ -67,7 +67,7 @@ const Experience = () => {
         <h2 className={styles.sectionHeadText}>Work Experience.</h2>
       </motion.div>
 
-      {!isMobile && (
+      {!isMobileOrTablet && (
         <div
           className="absolute left-0 -bottom-2/3 z-50 ml-60 transform -translate-x-1/2"
           style={{ width: `${width * 1.4}px`, height: `${height * 3}px` }}

@@ -3,11 +3,19 @@ import { styles } from "../styles";
 import { githubLink, linkedinLink } from "../constants";
 import { github, linkedin } from "../assets";
 import { BusCanvas } from "./canvas";
+import { useMediaQuery } from "react-responsive";
 
 const Hero = () => {
+  const isMobileOrTablet = useMediaQuery({ maxWidth: 1024 });
+
   return (
-    <section className="relative w-full h-screen mx-auto">
-      <BusCanvas />
+    <section
+      className={`
+        relative w-full mx-auto
+        ${!isMobileOrTablet ? "h-screen" : "min-h-[70vh] py-24"}
+      `}
+    >
+      {!isMobileOrTablet && <BusCanvas />}
       <div
         className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5 z-10`}
       >
