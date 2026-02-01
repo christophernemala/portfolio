@@ -6,42 +6,80 @@
 
 ## 📋 <a name="table">Table of Contents</a>
 
-1. 🤖 [Introduction](#introduction)
-2. ⚙️ [Tech Stack](#tech-stack)
-3. 🔋 [Features](#features)
+1. 🤖 [Introduction](#introduction)  
+2. ⚙️ [Tech Stack](#tech-stack)  
+3. 🔋 [Features](#features)  
+4. ⚡ [Performance](#performance)  
+
+---
 
 ## <a name="introduction">🤖 Introduction</a>
 
-Discover my interactive 3D portfolio crafted in React, Three.js, React Three Fiber, React Three Drei, Tailwind CSS, and Framer Motion. Experience a unique three-dimensional perspective, responsive design with Tailwind CSS, and captivating animations powered by Framer Motion. Stay connected effortlessly with integrated email functionality.
+This is my interactive **3D portfolio**, crafted using **React**, **Three.js**, **React Three Fiber**, **React Three Drei**, **Tailwind CSS**, and **Framer Motion**.
+
+The site focuses on delivering a **cinematic, three-dimensional experience** while maintaining **production-grade performance**. It features immersive 3D models, real-time weather effects, and motion-driven interactions — all carefully optimized to ensure fast load times, smooth animations, and responsive user interactions across devices.
+
+---
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
-- React.js
-- Three.js
-- Javascript
-- TailwindCSS
-- Framer Motion
-- Emailjs
-- React Three Fiber
-- React Three Drei
-- Vite
+- React.js  
+- Three.js  
+- React Three Fiber  
+- React Three Drei  
+- JavaScript  
+- Tailwind CSS  
+- Framer Motion  
+- EmailJS  
+- Vite  
+
+---
 
 ## <a name="features">🔋 Features</a>
 
-👉 **3D Portfolio Presentation:** Experience an immersive three-dimensional portfolio created with React, Three.js, Tailwind CSS, and Framer Motion, providing a unique visual perspective.
+👉 **Immersive 3D Experience**  
+A fully interactive 3D portfolio experience built with Three.js and React Three Fiber, creating depth, motion, and realism across multiple sections.
 
-👉 **Responsive Design:** A fully responsive design crafted with Tailwind CSS, ensuring optimal viewing across various devices and screen sizes.
+👉 **Advanced Animations**  
+Smooth, physics-inspired animations powered by Framer Motion, designed to enhance storytelling without compromising performance.
 
-👉 **Captivating Animations:** Delight in captivating animations powered by Framer Motion, enhancing the user experience with fluid and dynamic transitions.
+👉 **Real-Time Visual Effects**  
+Dynamic elements such as clouds, rain, lightning, and environmental lighting add atmosphere and realism to the interface.
 
-👉 **Integrated Email Functionality:** Stay connected effortlessly with integrated email functionality, allowing users to contact me directly through email.
+👉 **Responsive & Adaptive Design**  
+A mobile-first, fully responsive layout built with Tailwind CSS to ensure consistent visuals and usability across all screen sizes.
 
-👉 **3D Models Usage:** Engage with 3D models used in the intro, experience, tech stack, and contact us sections, adding visual interest and depth to the portfolio.
+👉 **Performance-Focused Architecture**  
+Despite heavy use of WebGL, 3D models, and animations, the application is architected to prioritize fast rendering, minimal layout shifts, and smooth interactions.
 
-👉 **Resume Download Option:** Access a downloadable resume directly from the portfolio, providing visitors with a convenient way to learn more about my qualifications and experience.
+👉 **Integrated Contact & Resume Access**  
+Built-in email functionality and a downloadable resume allow visitors to connect effortlessly.
 
-👉 **Project Showcase:** Showcasing my other mobile and web app development projects, giving visitors a comprehensive view of my expertise.
+👉 **Project Showcase**  
+A curated display of my mobile and web development projects, highlighting both technical depth and real-world application.
 
-including code architecture and reusability.
+👉 **Clean Code Architecture & Reusability**  
+Components are modular, reusable, and well-structured, following best practices for scalability and maintainability.
 
-`Overall, this portfolio serves as a testament to who I am, what I am passionate about, and the depth of my capabilities.`
+---
+
+## <a name="performance">⚡ Performance</a>
+
+Even with **heavy 3D models**, **WebGL rendering**, and **complex animations**, the site achieves **excellent real-world performance metrics**:
+
+### Latest Local Performance Metrics
+
+- **Largest Contentful Paint (LCP):** **0.31s**  
+  → Primary content renders almost instantly, ensuring a fast perceived load experience.
+
+- **Cumulative Layout Shift (CLS):** **0.00**  
+  → Zero unexpected layout shifts, resulting in a stable and polished visual experience.
+
+- **Interaction to Next Paint (INP):** **48ms**  
+  → Near-instant response to user interactions such as clicks and pointer events.
+
+These results demonstrate a careful balance between **visual richness** and **performance optimization**, ensuring the site feels smooth, responsive, and production-ready despite its technical complexity.
+
+---
+
+> **Overall, this portfolio serves as a testament to who I am, what I am passionate about, and the depth of my capabilities — combining advanced visuals, clean architecture, and real-world performance discipline.**
