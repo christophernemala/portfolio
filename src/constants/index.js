@@ -17,6 +17,7 @@ import {
   ecommerce,
   fullstack,
   evently,
+  planoraAI,
   cupertinoMotion,
   aora,
   customKeyboard,
@@ -186,12 +187,12 @@ const achievements = [
       "Initiated Tech Tuesday meetups to share technical challenges and solutions across multiple teams, documenting them and implementing best solutions collaboratively.",
     company: "IGT",
   },
-   {
+  {
     achievement:
       "Achieved parallel multi-device automated test execution using Browserstack, achieving maximum coverage in significantly less time.",
     company: "Rently",
   },
-   {
+  {
     achievement:
       "Migrated Jenkins from local setup to AWS EC2 using Docker, automating test workflows and saving 4 hours of daily manual effort.",
     company: "Rently",
@@ -245,6 +246,37 @@ const projects = [
     sourceCode: "https://github.com/Bharathkdev/portfolio",
     linkedinPost:
       "https://www.linkedin.com/posts/bharathrna_reactjs-threejs-tailwindcss-activity-7208475385955590144-j3N0?utm_source=share&utm_medium=member_desktop",
+  },
+  {
+    name: "Planora AI",
+    description:
+      "Planora AI is an AI-powered architectural visualization platform that transforms 2D floor plans into photorealistic 3D interior renders. Built with React, TypeScript, serverless workers, and generative image models, it demonstrates a real-world AI SaaS architecture including image-to-image generation, persistent storage, CDN hosting, and interactive before/after comparison.",
+    tags: [
+      {
+        name: "reactjs",
+        color: "violet-text-gradient",
+      },
+      {
+        name: "typescript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "generative-ai",
+        color: "green-text-gradient",
+      },
+      {
+        name: "serverless",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "puter",
+        color: "orange-text-gradient",
+      },
+    ],
+    image: planoraAI,
+    website: "https://react-planora-ai.vercel.app/",
+    sourceCode: "https://github.com/Bharathkdev/react-planora-ai",
+    linkedinPost: "",
   },
   {
     name: "Event Platform",
